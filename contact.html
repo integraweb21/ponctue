@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Ponctue</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <a href="index.html">
+            <img src="assets/img/logo-ponctue.svg" alt="Logo Studio Ponctue">
+        </a>
+        <button class="menu-toggle" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <nav class="menu">
+        <ul>
+            <li><a href="index.html" class="active">Accueil</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="realisations.html">Réalisations</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="menu-bottom">
+            <div class="marquee-content">
+                <span>Indépendant | créatif | audacieux | Passionné | curieux | singulier | original | unique | humain | surprenant | </span>
+                <span>Indépendant | créatif | audacieux | Passionné | curieux | singulier | original | unique | humain | surprenant | </span>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.facebook.com/profile.php?id=61578975101260" aria-label="Facebook" target="_blank"><img src="assets/img/Facebook.svg" alt="Picto Facebook"></a>
+                <a href="https://www.instagram.com/studio_ponctue/" aria-label="LinkedIn" target="_blank"><img src="assets/img/Instagram.svg" alt="Picto Instagram"></a>
+                <a href="https://www.linkedin.com/company/studio-ponctue/" aria-label="Instagram" target="_blank"><img src="assets/img/Linkedin.svg" alt="Picto Linkedin"></a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1 style="margin-left: 116px;">Contact</h1>
+                <p class="text-large section-intro">
+                    Un projet, une idée, une envie ? Parlons-en !<br>
+                    Ponctue est un studio de design graphique basé à Lons-le-Saunier, dans le Jura. Mais les idées voyagent sans limites : nous collaborons aussi bien à Dole, Besançon, Dijon, Lyon... en France et au-delà ! Alors, on donne du caractère à vos idées ?
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Nom prénom<span>*</span></label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-mail<span>*</span></label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Téléphone<span>*</span></label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="project">Mon projet<span>*</span></label>
+                        <textarea id="project" name="project" required></textarea>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="consent" name="consent" required>
+                        <label for="consent">
+                            Je consens à la collecte de mes données dans le cadre de la prise de contact. Ces données ne seront en aucun cas transmises à des tiers.
+                        </label>
+                    </div>
+
+                    <div class="form-submit">
+                        <button type="submit" class="btn">
+                            <span class="btn-text">Envoyer</span>
+                            <span class="btn-underline"></span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-marquee">
+            <div class="marquee-content">
+                <span>Identité visuelle | Design graphique | Direction artistique | Print & web | Stratégie de communication | </span>
+                <span>Identité visuelle | Design graphique | Direction artistique | Print & web | Stratégie de communication | </span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="footer-divider"></div>
+            <p>Ponctue est un studio de design graphique<br>basé à Lons-le-Saunier dans le Jura.</p>
+            <div class="footer-content">
+                <div class="footer-info">
+                    <img src="assets/img/logo-ponctue-footer.svg" alt="Logo Studio Ponctue">
+                </div>
+                <div class="footer-legal">
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/profile.php?id=61578975101260" aria-label="Facebook" target="_blank"><img src="assets/img/Facebook.svg" alt="Picto Facebook"></a>
+                    <a href="https://www.instagram.com/studio_ponctue/" aria-label="Linkedin" target="_blank"><img src="assets/img/Instagram.svg" alt="Picto Instagram"></a>
+                    <a href="https://www.linkedin.com/company/studio-ponctue/" aria-label="Instagram" target="_blank"><img src="assets/img/Linkedin.svg" alt="Picto Linkedin"></a>
+                </div>
+                <div class="footer-bottom">
+                    <a href="#">Mentions légales</a>
+                </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="assets/main.js"></script>
+</body>
+</html>
