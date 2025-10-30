@@ -200,6 +200,10 @@ nav.menu .marquee-content{
   margin-left: 116px;
 }
 
+.hero.home{
+  position: relative;
+}
+
 .hero-image {
   width: 100%;
   height: 600px;
@@ -314,6 +318,21 @@ section {
   margin-top: 60px;
 }
 
+/* Services */
+.services{
+  position: relative;
+}
+
+.services h2{
+  position: relative;
+  display: inline;
+}
+
+.services h2 span, .services .faq-grid{
+  position: relative;
+  z-index: 1;
+}
+
 /* CTA Section */
 .cta-section {
   background-color: var(--color-primary);
@@ -382,7 +401,12 @@ section {
 }
 
 /* About Content */
+.about{
+  position: relative;
+}
+
 .about-content {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
@@ -675,7 +699,7 @@ footer {
 
 /* Responsive */
 @media (min-width: 768px){
-    nav.menu::after{
+  nav.menu::after{
     content: "";
     background-image: url('img/BlueShape1_MY.svg');
     width: 384px;
@@ -685,6 +709,40 @@ footer {
     margin-left: -192px;
     top: 50%;
     margin-top: -192px
+  }
+
+  .hero.home::after{
+    content: "";
+    background-image: url('img/BlueShape1_GD.svg');
+    background-repeat: no-repeat;
+    width: 476px;
+    height: 914px;
+    position: absolute;
+    right: 0;
+    bottom: -650px;
+  }
+
+  .services h2:after{
+    content: "";
+    background-image: url('img/BlueShape1_MY.svg');
+    width: 384px;
+    height: 384px;
+    position: absolute;
+    top: -150px;
+    right: -65%;
+    z-index: 0;
+  }
+
+  .about:before{
+    content: "";
+    background-image: url('img/BlueShape1_GD2.svg');
+    background-repeat: no-repeat;
+    width: 632px;
+    height: 914px;
+    position: absolute;
+    top: -400px;
+    right: 0;
+    z-index: 0;
   }
 }
 
@@ -728,15 +786,46 @@ footer {
     .hero {
         padding-top: 100px;
     }
-    
+    .hero.home::after{
+      content: "";
+      background-image: url('img/BlueShape1_MY.svg');
+      background-repeat: no-repeat;
+      width: 210px;
+      height: 384px;
+      position: absolute;
+      right: 0;
+      bottom: -200px;
+    }
     .grid-3 {
         grid-template-columns: 1fr;
     }
     
     .about-content,
     .project-section {
-        grid-template-columns: 1fr;
-        gap: 40px;
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .services:after{
+      content: "";
+      background-image: url('img/BlueShape1_MY2.svg');
+      background-repeat: no-repeat;
+      width: 110px;
+      height: 384px;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      z-index: 0;
+    }
+    .about:before{
+      content: "";
+      background-image: url('img/BlueShape1_MY.svg');
+      background-repeat: no-repeat;
+      width: 210px;
+      height: 384px;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      margin-top: -200px;
     }
     .cta-section a:after{
         width: 154px;
