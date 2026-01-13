@@ -58,9 +58,17 @@ a:hover{
   color: var(--color-primary);
 }
 
+z-index-1{
+  z-index: 1;
+}
+
 section{
   position: relative;
   z-index: 1;
+}
+
+section img{
+  width: 100%;
 }
 
 .text-large {
@@ -72,6 +80,7 @@ section{
 .title-about{
   font-size: 80px;
   line-height: 85px;
+  margin-bottom: 102px;
 }
 
 /* Header */
@@ -343,15 +352,11 @@ nav.menu .marquee-content{
 
 /* Hero Section */
 .hero {
-  /*min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;*/
   padding-top: 0px;
-  padding-bottom: 80px;
+  padding-bottom: 40px;
 }
 
-.hero h1 {
+.hero.home h1 {
   margin-bottom: 30px;
 }
 
@@ -360,9 +365,16 @@ nav.menu .marquee-content{
   padding-bottom: 240px;
 }
 
+.hero.home .hero-image{
+  margin-bottom: 100px;
+}
+
 .hero-image {
   width: 100%;
-  margin-bottom: 100px;
+}
+
+.hero-image img{
+  width: 100%;
 }
 
 .hero-image video{
@@ -491,7 +503,8 @@ nav.menu .marquee-content{
 
 /* Services */
 .services{
-  position: relative;
+  margin-top: 174px;
+  margin-bottom: 178px;
 }
 
 .services h2{
@@ -588,14 +601,12 @@ nav.menu .marquee-content{
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
-  align-items: start;
-  margin: 80px 0;
+  align-items: center;
+  margin: 50px 0;
 }
 
 .about-image {
   width: 100%;
-  height: 447px;
-  background-color: var(--color-gray);
   object-fit: cover;
 }
 
@@ -622,12 +633,13 @@ nav.menu .marquee-content{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(500px, 2fr));
   gap: 60px;
-  margin-top: 60px;
+  margin-top: 80px;
 }
 .faq-item a{
   text-decoration: underline;
   text-decoration-color: var(--color-primary);
   text-underline-offset: 8px;
+  color: var(--color-primary);
 }
 
 .faq-item h3 {
@@ -661,7 +673,7 @@ nav.menu .marquee-content{
 .project-info {
   display: flex;
   gap: 100px;
-  margin-bottom: 60px;
+  margin-bottom: 120px;
 }
 
 .project-services {
@@ -841,7 +853,7 @@ footer i:hover{
 .footer-content {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  margin-top: 100px;
+  margin-top: 95px;
 }
 
 .footer-info p {
@@ -919,7 +931,7 @@ footer i:hover{
     width: 384px;
     height: 384px;
     position: absolute;
-    top: -150px;
+    top: -140px;
     right: -65%;
     z-index: 0;
   }
@@ -938,10 +950,6 @@ footer i:hover{
 }
 
 @media (max-width: 1200px) {
-  .hero h1 {
-    margin-left: 0;
-    margin-bottom: 22px;
-  }
   
   .project-info {
     flex-direction: column;
@@ -950,9 +958,12 @@ footer i:hover{
 }
 
 @media (max-width: 768px) {
-    h1, h2, .cta-section h2{
+    h1, h2, .title-about,.cta-section h2{
         font-size: 50px;
         line-height: 60px;
+    }
+    .title-about{
+      margin-bottom: 66px;
     }
     .text-large{
         font-size: 20px;
@@ -979,7 +990,8 @@ footer i:hover{
     }
     
     .hero {
-        padding-top: 100px;
+        padding-top: 0px;
+        padding-bottom: 66px;
     }
 
     .hero.home{
@@ -998,8 +1010,26 @@ footer i:hover{
       bottom: -150px;
     }
 
-    .hero-image{
+    .hero.home .hero-image{
       margin-bottom: 60px;
+    }
+
+    .hero-image img, .about-banner img{
+      height: 334px;
+      object-fit: cover;
+    }
+
+    .project-info{
+      margin-bottom: 85px;
+    }
+
+    .services{
+      margin-top: 140px;
+      margin-bottom: 130px;
+    }
+
+    .faq-grid{
+      margin-top: 50px;
     }
 
     .grid-3 {
@@ -1040,7 +1070,8 @@ footer i:hover{
       position: absolute;
       right: 0;
       top: 50%;
-      margin-top: -200px;
+      margin-top: -350px;
+      z-index: 1;
     }
     .cta-section a:after{
         width: 154px;
