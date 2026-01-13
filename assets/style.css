@@ -66,7 +66,6 @@ section{
 .text-large {
     font-size: 32px;
     font-weight: 300;
-    margin-top: 40px;
 }
 
 
@@ -79,7 +78,7 @@ section{
 header {
   position: relative;
   width: 100%;
-  padding: 36px 50px;
+  padding: 36px 50px 62px 50px;
   display: flex;
   justify-content: space-between;
   z-index: 999;
@@ -289,7 +288,7 @@ nav ul li a {
   font-family: 'Bricolage Grotesque', sans-serif;
   font-size: 150px;
   line-height: 150px;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--color-dark);
   text-decoration: none;
   transition: color 0.3s ease;
@@ -348,16 +347,17 @@ nav.menu .marquee-content{
   display: flex;
   flex-direction: column;
   justify-content: center;*/
-  padding-top: 15px;
+  padding-top: 0px;
   padding-bottom: 80px;
 }
 
 .hero h1 {
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 .hero.home{
   position: relative;
+  padding-bottom: 240px;
 }
 
 .hero-image {
@@ -367,11 +367,6 @@ nav.menu .marquee-content{
 
 .hero-image video{
   width: 100%;
-}
-
-/* Section */
-section {
-  padding: 80px 0;
 }
 
 /* Grid */
@@ -436,6 +431,7 @@ section {
 
 .card-title {
   font-weight: 700;
+  line-height: 25px;
 }
 
 .card-subtitle {
@@ -445,6 +441,10 @@ section {
 }
 
 /* Expertise Cards */
+.expertises{
+  padding-bottom: 141px;
+}
+
 .expertise-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -476,7 +476,17 @@ section {
 
 .read-more{
   text-align: center;
-  margin-top: 60px;
+  margin-top: 55px;
+}
+
+/* Réalisations */
+
+.realisations{
+  padding-bottom: 141px;
+}
+
+.realisations .text-large {
+  margin-bottom: 57px;
 }
 
 /* Services */
@@ -930,6 +940,7 @@ footer i:hover{
 @media (max-width: 1200px) {
   .hero h1 {
     margin-left: 0;
+    margin-bottom: 22px;
   }
   
   .project-info {
@@ -950,6 +961,9 @@ footer i:hover{
         font-size: 50px;
         line-height: 60px;
     }
+    nav.menu{
+      padding-top: 187px;
+    }
     nav.menu .menu-bottom{
         gap: 50px;
     }
@@ -961,12 +975,18 @@ footer i:hover{
     }
     
     header {
-        padding: 20px 30px;
+        padding: 26px 30px 72px 30px;
     }
     
     .hero {
         padding-top: 100px;
     }
+
+    .hero.home{
+      padding-top: 0px;
+      padding-bottom: 160px;
+    }
+
     .hero.home::after{
       content: "";
       background-image: url('img/BlueShape1_MY.svg');
@@ -975,8 +995,13 @@ footer i:hover{
       height: 384px;
       position: absolute;
       right: 0;
-      bottom: -200px;
+      bottom: -150px;
     }
+
+    .hero-image{
+      margin-bottom: 60px;
+    }
+
     .grid-3 {
         grid-template-columns: 1fr;
     }
@@ -985,6 +1010,15 @@ footer i:hover{
     .project-section {
       grid-template-columns: 1fr;
       gap: 40px;
+    }
+    .expertises{
+      padding-bottom: 164px;
+    }
+    .expertise-grid{
+      gap: 60px;
+    }
+    .realisations h2{
+      margin-bottom: 22px;
     }
     .services:after{
       content: "";
@@ -1029,19 +1063,11 @@ footer i:hover{
     .expertise-grid {
         grid-template-columns: 1fr;
     }
-    
-    section {
-        padding: 60px 0;
-    }
 }
 
 @media (max-width: 480px) {
   .container {
     padding: 0 20px;
-  }
-  
-  header {
-    padding: 20px;
   }
   
   .card-image {
