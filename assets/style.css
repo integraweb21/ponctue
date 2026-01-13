@@ -410,7 +410,6 @@ nav.menu .marquee-content{
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
 }
 
 .card-text h3{
@@ -493,12 +492,24 @@ nav.menu .marquee-content{
 
 /* Réalisations */
 
+.hero.real{
+  padding-bottom: 0px;
+}
+
+.hero.real .text-large{
+  margin-bottom: 100px;
+}
+
 .realisations{
   padding-bottom: 141px;
 }
 
 .realisations .text-large {
   margin-bottom: 57px;
+}
+
+.realisations-grid{
+  margin-bottom: 186px;
 }
 
 /* Services */
@@ -635,7 +646,7 @@ nav.menu .marquee-content{
   gap: 60px;
   margin-top: 80px;
 }
-.faq-item a{
+.faq-item a, .card-text a{
   text-decoration: underline;
   text-decoration-color: var(--color-primary);
   text-underline-offset: 8px;
@@ -901,6 +912,12 @@ footer i:hover{
 
 /* Responsive */
 @media (min-width: 768px){
+
+  .title-realisations{
+    margin-left: 116px;
+    margin-bottom: 30px;
+  }
+
   nav.menu::after{
     content: "";
     background-image: url('img/BlueShape1_MY.svg');
@@ -1047,8 +1064,16 @@ footer i:hover{
     .expertise-grid{
       gap: 60px;
     }
-    .realisations h2{
+    .realisations h2, .title-realisations{
       margin-bottom: 22px;
+    }
+    .realisations-grid{
+      margin-bottom: 118px;
+    }
+    .realisations-grid .card-text{
+      display: inherit;
+      margin-top: 97px;
+      justify-content: inherit;
     }
     .services:after{
       content: "";
