@@ -1,7 +1,7 @@
 /* Reset et variables */
 :root {
-  --color-bg: #F4EBDF;
-  --color-primary: #3363FF;
+  --color-bg: #FFF7ED;
+  --color-primary: #327DFF;
   --color-dark: #0A0A0A;
   --color-gray: #D9D9D9;
 }
@@ -23,6 +23,7 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
 }
+
 
 /* Typographie */
 h1, h2, h3 {
@@ -65,22 +66,149 @@ a:hover{
 
 /* Header */
 header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  position: relative;
   padding: 36px 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 1000;
+  z-index: 999;
   background-color: var(--color-bg);
+}
+
+body.menu-open header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
 }
 
 .logo {
   width: 167px;
   height: 56px;
 }
+
+/* Menu burger */
+
+.burger-menu {
+  width: 26px;
+  height: 50px;
+  position: relative;
+  cursor: pointer;
+}
+
+.burger-circle {
+  width: 12px;
+  height: 10px;
+  background-color: #000;
+  border-radius: 50%;
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: none;
+}
+
+.burger-bar:nth-child(3), .burger-bar:nth-child(4){
+  width: 25px;
+  height: 7px;
+  background-color: #000;
+  transition: all 0.3s ease;
+  position: absolute;
+}
+
+/* Deuxième barre avec effet zigzag */
+.burger-bar:nth-child(2) {
+  position: absolute;
+  width: 26px;
+  height: 11px;
+  top: 18px;
+  background-image: url('img/zigzag-menu.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  transition: none
+}
+
+.burger-bar:nth-child(3) {
+  top: 32px;
+}
+
+.burger-bar:nth-child(4) {
+  top: 42px;
+}
+
+/* Animation quand le menu est ouvert */
+.burger-menu.open .burger-circle {
+  animation: slideUpFadeOut 0.6s ease forwards;
+}
+
+.burger-menu.open .burger-bar:nth-child(2) {
+  animation: slideUpFadeOutBar 0.6s ease forwards;
+}
+
+@keyframes slideUpFadeOut {
+  0% {
+    top: 5px;
+  }
+  100% {
+    top: -66px;
+  }
+}
+
+@keyframes slideUpFadeOutBar {
+  0% {
+    top: 18px;
+  }
+  100% {
+    top: -53px;
+  }
+}
+
+/* Animation quand le menu se ferme (retour à la position initiale) */
+.burger-menu:not(.open) .burger-circle {
+  animation: slideDownFadeIn 0.6s ease forwards;
+}
+
+.burger-menu:not(.open) .burger-bar:nth-child(2) {
+  animation: slideDownFadeInBar 0.6s ease forwards;
+}
+
+@keyframes slideDownFadeIn {
+  0% {
+    top: -66px;
+  }
+  100% {
+    top: 5px;
+  }
+}
+
+@keyframes slideDownFadeInBar {
+  0% {
+    top: -53px;
+  }
+  100% {
+    top: 18px;
+  }
+}
+
+.burger-menu.open .burger-bar:nth-child(3) {
+  transform: rotate(45deg);
+  top: 32px;
+}
+
+.burger-menu.open .burger-bar:nth-child(4) {
+  transform: rotate(-45deg);
+  top: 32px;
+}
+
+.demo-text {
+  margin-top: 30px;
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+}
+
+
 
 .menu-toggle {
   width: 30px;
@@ -157,6 +285,7 @@ nav.menu{
     justify-content: space-between;
     overflow: hidden;
     height: 100%;
+    z-index: 1;
 }
 
 nav.menu ul{
@@ -179,10 +308,13 @@ nav.menu .marquee-content{
 }
 
 /* Container */
-.container {
-  max-width: 1440px;
+.container, .container-fluid {
   margin: 0 auto;
   padding: 0 50px;
+}
+
+.container{
+  max-width: 1440px;
 }
 
 /* Hero Section */
@@ -191,13 +323,12 @@ nav.menu .marquee-content{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-top: 130px;
+  padding-top: 15px;
   padding-bottom: 80px;
 }
 
 .hero h1 {
   margin-bottom: 40px;
-  margin-left: 116px;
 }
 
 .hero.home{
@@ -206,10 +337,11 @@ nav.menu .marquee-content{
 
 .hero-image {
   width: 100%;
-  height: 600px;
-  background-color: var(--color-gray);
-  object-fit: cover;
   margin-bottom: 100px;
+}
+
+.hero-image video{
+  width: 100%;
 }
 
 /* Section */
@@ -243,6 +375,10 @@ section {
   overflow: hidden;
 }
 
+.card a{
+  color: inherit;
+}
+
 .card-text{
   display: flex;
   align-items: center;
@@ -259,13 +395,19 @@ section {
 .card-image {
   width: 100%;
   height: 517px;
-  background-color: var(--color-gray);
-  object-fit: cover;
-  transition: transform 0.3s ease;
+  overflow: hidden;
+  position: relative;
 }
 
-.card:hover .card-image {
-  transform: scale(1.05);
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.card:hover .card-image img {
+  transform: scale(1.1);
 }
 
 .card-content {
@@ -274,7 +416,6 @@ section {
 
 .card-title {
   font-weight: 700;
-  margin-bottom: 8px;
 }
 
 .card-subtitle {
@@ -383,9 +524,16 @@ section {
 }
 
 .btn-text {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  background-color: var(--color-primary);
+  color: #fff;
+  padding: 9px 25px;
+  border-radius: 27px;
+  border: 1px solid var(--color-primary);
+}
+
+.btn-text:hover{
+  background-color: transparent;
+  color: var(--color-primary);
 }
 
 .btn-underline {
@@ -621,15 +769,27 @@ footer {
   margin-bottom: 40px;
 }
 
+footer i{
+  font-size: 20px;
+}
+
+footer i:hover{
+  color: var(--color-primary);
+}
+
 .marquee-content {
   display: flex;
   white-space: nowrap;
-  animation: marquee 30s linear infinite;
+  animation: marquee 20s linear infinite;
   font-size: clamp(20px, 4vw, 40px);
-  font-weight: 200;
+  font-weight: 150;
   text-transform: uppercase;
   letter-spacing: 4px;
   color: var(--color-primary);
+}
+
+.marquee-content span:nth-child(2){
+  margin-left: 15px;
 }
 
 @keyframes marquee {
@@ -658,9 +818,9 @@ footer {
   margin-bottom: 120px;
 }
 
-.footer-logo {
-  width: 504px;
-  height: 169px;
+.footer-info img{
+  position: relative;
+  top: 8px;
 }
 
 .footer-social {
