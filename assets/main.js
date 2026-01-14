@@ -166,6 +166,16 @@ document.addEventListener('mousemove', (e) => {
 
     // Fonction pour diviser un élément en lignes
     function splitIntoLines(element) {
+        // Si c'est un <ul>, traiter chaque <li> comme une ligne
+        if (element.tagName === 'UL') {
+            const lis = element.querySelectorAll('li');
+            const lines = [];
+            lis.forEach(li => {
+                lines.push(li.outerHTML);
+            });
+            return lines.length > 0 ? lines : [element.innerHTML.trim()];
+        }
+        
         const html = element.innerHTML;
         const lines = [];
         
@@ -204,15 +214,28 @@ document.addEventListener('mousemove', (e) => {
         
         if (lines.length === 0) return;
         
-        element.innerHTML = '';
-        lines.forEach((line, index) => {
-            const wrapper = document.createElement('span');
-            wrapper.className = 'line';
-            wrapper.style.display = 'block';
-            wrapper.style.overflow = 'hidden';
-            wrapper.innerHTML = line || '&nbsp;';
-            element.appendChild(wrapper);
-        });
+        // Si c'est un <ul>, préserver la structure de liste
+        if (element.tagName === 'UL') {
+            element.innerHTML = '';
+            lines.forEach((line, index) => {
+                const wrapper = document.createElement('span');
+                wrapper.className = 'line';
+                wrapper.style.display = 'block';
+                wrapper.style.overflow = 'hidden';
+                wrapper.innerHTML = line || '&nbsp;';
+                element.appendChild(wrapper);
+            });
+        } else {
+            element.innerHTML = '';
+            lines.forEach((line, index) => {
+                const wrapper = document.createElement('span');
+                wrapper.className = 'line';
+                wrapper.style.display = 'block';
+                wrapper.style.overflow = 'hidden';
+                wrapper.innerHTML = line || '&nbsp;';
+                element.appendChild(wrapper);
+            });
+        }
     }
 
     // Initialiser l'animation au chargement du DOM
