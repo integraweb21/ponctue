@@ -22,6 +22,7 @@ body {
   color: var(--color-dark);
   line-height: 1.6;
   overflow-x: hidden;
+  transition: padding-top 0s; /* Transition instantanée pour éviter le saut */
 }
 
 
@@ -36,6 +37,16 @@ h1 {
     line-height: 130px;
 }
 
+h1.animate-text {
+    display: flex;
+    flex-direction: column;
+}
+
+h1.animate-text .line {
+    display: block;
+    overflow: hidden;
+}
+
 h2 {
     font-size: 80px;
 }
@@ -47,6 +58,7 @@ h3 {
 p {
     font-size: 16px;
     font-weight: 300;
+    margin-bottom: 20px;
 }
 
 a{
@@ -56,10 +68,6 @@ a{
 
 a:hover{
   color: var(--color-primary);
-}
-
-z-index-1{
-  z-index: 1;
 }
 
 section{
@@ -76,6 +84,20 @@ section img{
     font-weight: 300;
 }
 
+.text-large.animate-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.text-large.animate-text .line {
+    display: block;
+    overflow: hidden;
+    margin-bottom: 0.5em;
+}
+
+.z-index-1{
+  z-index: 1;
+}
 
 .title-about{
   font-size: 80px;
@@ -91,7 +113,7 @@ header {
   display: flex;
   justify-content: space-between;
   z-index: 999;
-  background-color: var(--color-bg);
+  transition: none;
 }
 
 body.menu-open header {
@@ -101,7 +123,7 @@ body.menu-open header {
 }
 
 header a img {
-  transition: opacity 0.3s ease;
+  transition: none;
   opacity: 1;
   width: 167px;
   height: 56px;
@@ -219,12 +241,12 @@ header a img {
 
 .burger-menu.open .burger-bar:nth-child(3) {
   transform: rotate(45deg);
-  top: 32px;
+  top: 25px;
 }
 
 .burger-menu.open .burger-bar:nth-child(4) {
   transform: rotate(-45deg);
-  top: 32px;
+  top: 25px;
 }
 
 .demo-text {
@@ -315,6 +337,8 @@ nav.menu{
     overflow: hidden;
     height: 100%;
     z-index: 2;
+    --mouse-x: 0;
+    --mouse-y: 0;
 }
 
 nav.menu ul{
@@ -389,7 +413,6 @@ nav.menu .marquee-content{
 
 .grid-2 {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  margin-top: 80px;
 }
 
 .grid-3 {
@@ -472,6 +495,10 @@ nav.menu .marquee-content{
     margin-bottom: 30px;
     width: 56px;
     height: 56px;
+}
+
+.expertise-icon img{
+  width: initial;
 }
 
 .expertise-card h3 {
@@ -668,23 +695,28 @@ nav.menu .marquee-content{
 }
 
 /* Project Detail */
-.project-hero {
-  padding-top: 130px;
+.etiquette-colis{
+  margin-bottom: 141px;
 }
 
 .project-hero h1 {
-  margin-bottom: 20px;
+  font-size: 80px;
+  line-height: 80px;
 }
 
 .project-hero .subtitle {
-  font-size: clamp(20px, 3vw, 32px);
-  margin-bottom: 40px;
+  font-size: 32px;
+  margin-bottom: 61px;
+}
+
+.project-hero .hero-image{
+  margin-bottom: 39px;
 }
 
 .project-info {
   display: flex;
   gap: 100px;
-  margin-bottom: 120px;
+  margin-bottom: 150px;
 }
 
 .project-services {
@@ -697,11 +729,10 @@ nav.menu .marquee-content{
 }
 
 .project-section {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  margin: 80px 0;
-  align-items: start;
+  display: flex;
+  gap: 120px;
+  margin-bottom: 51px;
+  align-items: center;
 }
 
 .project-section.reverse {
@@ -714,9 +745,11 @@ nav.menu .marquee-content{
 
 .project-image {
   width: 100%;
-  min-height: 400px;
-  background-color: var(--color-gray);
   object-fit: cover;
+}
+
+.project-image-banner{
+  margin-bottom: 51px;
 }
 
 .project-text h3 {
@@ -734,7 +767,6 @@ nav.menu .marquee-content{
   display: inline-block;
   color: var(--color-primary);
   text-decoration: none;
-  margin-bottom: 20px;
   transition: transform 0.3s ease;
 }
 
@@ -743,19 +775,23 @@ nav.menu .marquee-content{
 }
 
 /* Contact Form */
+.contact{
+  margin-top: 57px;
+}
+
 .contact-form {
-  max-width: 645px;
-  margin: 60px auto;
+  max-width: 647px;
+  margin: 97px auto 147px;
 }
 
 .form-group {
-  margin-bottom: 40px;
+  margin-bottom: 13px;
 }
 
 .form-group label {
   display: block;
   font-size: 16px;
-  margin-bottom: 8px;
+  margin-bottom: 3px;
 }
 
 .form-group label span {
@@ -765,10 +801,10 @@ nav.menu .marquee-content{
 .form-group input,
 .form-group textarea {
   width: 100%;
-  padding: 12px 0;
+  padding: 10px;
   border: none;
-  border-bottom: 1px solid var(--color-primary);
-  background: transparent;
+  border-radius: 10px;
+  background: #fff;
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
   outline: none;
@@ -781,7 +817,7 @@ nav.menu .marquee-content{
 }
 
 .form-group textarea {
-  min-height: 150px;
+  min-height: 193px;
   resize: vertical;
 }
 
@@ -913,7 +949,7 @@ footer i:hover{
 /* Responsive */
 @media (min-width: 768px){
 
-  .title-realisations{
+  .title-realisations, .title-contact{
     margin-left: 116px;
     margin-bottom: 30px;
   }
@@ -929,6 +965,8 @@ footer i:hover{
     top: 50%;
     margin-top: -192px;
     z-index: 0;
+    transform: translate(calc(var(--mouse-x) * 1px), calc(var(--mouse-y) * 1px));
+    transition: transform 0.1s ease-out;
   }
 
   .hero.home::after{
@@ -975,7 +1013,7 @@ footer i:hover{
 }
 
 @media (max-width: 768px) {
-    h1, h2, .title-about,.cta-section h2{
+    h1, h2, .title-about, .project-hero h1, .cta-section h2{
         font-size: 50px;
         line-height: 60px;
     }
@@ -1053,10 +1091,27 @@ footer i:hover{
         grid-template-columns: 1fr;
     }
     
-    .about-content,
-    .project-section {
+    .about-content{
       grid-template-columns: 1fr;
       gap: 40px;
+    }
+    .project-section{
+      flex-direction: column;
+      gap: 40px;
+    }
+    .project-image-banner{
+      height: 335px;
+      overflow: hidden;
+    }
+    .project-image-banner img{
+      height: 100%;
+      object-fit: cover;
+    }
+    .project-section.reverse{
+      flex-direction: column-reverse;
+    }
+    .etiquette-colis{
+      margin-bottom: 114px;
     }
     .expertises{
       padding-bottom: 164px;
@@ -1064,7 +1119,7 @@ footer i:hover{
     .expertise-grid{
       gap: 60px;
     }
-    .realisations h2, .title-realisations{
+    .realisations h2, .title-realisations, .title-contact{
       margin-bottom: 22px;
     }
     .realisations-grid{
@@ -1101,6 +1156,13 @@ footer i:hover{
     .cta-section a:after{
         width: 154px;
     }
+    .contact-form {
+      max-width: 647px;
+      margin: 81px auto 115px;
+    }
+    .contact-form{
+      margin-top: 0px;
+    }
     footer{
         padding-top: 30px;
     }
@@ -1131,7 +1193,8 @@ footer i:hover{
   }
   
   .hero-image {
-    height: 300px;
+    height: 317px;
+    overflow: hidden;
   }
   
   .about-image {
